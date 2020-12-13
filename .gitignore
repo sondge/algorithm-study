@@ -1,0 +1,18 @@
+HELP.md
+/target/
+/product-api/target/
+/product-client/target/
+/product-dao/target/
+/product-service/target/
+/product-common/target/
+/product-schedule/target/
+/product-facade/target/
+/product-integration/target/
+/logs/
+*.log
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
