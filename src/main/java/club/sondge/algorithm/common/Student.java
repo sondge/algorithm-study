@@ -1,7 +1,7 @@
-package club.sondge.algorithm.search;
+package club.sondge.algorithm.common;
 
 
-public class Student {
+public class Student implements Comparable<Student> {
 
     private String name;
 
@@ -26,5 +26,17 @@ public class Student {
     @Override
     public int hashCode() {
         return name.hashCode();
+    }
+
+    public int compareTo(Student student) {
+        if (student == null) {
+            return 1;
+        }
+        return name.compareTo(student.getName());
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
     }
 }

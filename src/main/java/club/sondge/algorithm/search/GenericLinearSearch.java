@@ -1,5 +1,7 @@
 package club.sondge.algorithm.search;
 
+import club.sondge.algorithm.common.Student;
+
 public class GenericLinearSearch {
     private GenericLinearSearch() {
     }
