@@ -24,6 +24,18 @@ public class SelectionSort {
         }
     }
 
+    public static <E extends Comparable<E>> void sort(E[] array) {
+        for (int i = array.length - 1; i > 0; i--) {
+            int maxIndex = i;
+            for (int j = i - 1; j >= 0; j--) {
+                if (array[j].compareTo(array[maxIndex]) > 0) {
+                    maxIndex = j;
+                }
+            }
+            swap(array, i, maxIndex);
+        }
+    }
+
     private static <E> void swap(E[] array, int i, int minIndex) {
         if (minIndex != i) {
             E temp = array[minIndex];
@@ -36,7 +48,8 @@ public class SelectionSort {
         Integer[] array = {1, 34, 5, 1, 46, 7, 9, 29};
 
         System.out.println(Arrays.toString(array));
-        selectSort(array);
+        sort(array);
+//        selectSort(array);
         System.out.println(Arrays.toString(array));
 
         Student[] studentArray = {
@@ -46,7 +59,8 @@ public class SelectionSort {
         };
 
         System.out.println(Arrays.toString(studentArray));
-        selectSort(studentArray);
+        sort(studentArray);
+//        selectSort(studentArray);
         System.out.println(Arrays.toString(studentArray));
 
     }
