@@ -1,6 +1,6 @@
 package club.sondge.algorithm.array;
 
-@SuppressWarnings("UnusedReturnValue")
+@SuppressWarnings({"UnusedReturnValue", "ManualArrayCopy"})
 public class Array<E> {
 
     private E[] data;
@@ -23,7 +23,6 @@ public class Array<E> {
         return size;
     }
 
-    @SuppressWarnings("ManualArrayCopy")
     public void addElement(int index, E element) {
         if (index < 0 && index > size) {
             throw new IllegalArgumentException("索引不能为 0");
@@ -47,7 +46,6 @@ public class Array<E> {
         addElement(0, element);
     }
 
-    @SuppressWarnings("ManualArrayCopy")
     private void resize(int length) {
         E[] newData = (E[]) new Object[length];
         for (int i = 0; i < size; i++) {
@@ -70,7 +68,6 @@ public class Array<E> {
         data[index] = element;
     }
 
-    @SuppressWarnings("ManualArrayCopy")
     public E remove(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("索引超出范围，删除失败");
