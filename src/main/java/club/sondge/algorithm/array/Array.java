@@ -15,6 +15,10 @@ public class Array<E> {
         size = 0;
     }
 
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
     public int getCapacity() {
         return data.length;
     }
@@ -59,6 +63,14 @@ public class Array<E> {
             throw new IllegalArgumentException("索引超出范围，获取失败");
         }
         return data[index];
+    }
+
+    public E getFirst() {
+        return get(0);
+    }
+
+    public E getLast() {
+        return get(size - 1);
     }
 
     public void set(int index, E element) {
