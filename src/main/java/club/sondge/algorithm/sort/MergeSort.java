@@ -1,6 +1,4 @@
 package club.sondge.algorithm.sort;
-
-
 import club.sondge.algorithm.search.ArrayGenerator;
 
 import java.util.Arrays;
@@ -19,7 +17,9 @@ public class MergeSort<E> {
         int mid = left + (right - left) / 2;
         sort(array, left, mid);
         sort(array, mid + 1, right);
-        merge(array, left, mid, right);
+        if (array[mid].compareTo(array[mid + 1]) > 0) {
+            merge(array, left, mid, right);
+        }
 
     }
 
@@ -46,23 +46,7 @@ public class MergeSort<E> {
     }
 
 
-    public static <E extends Comparable<E>> void sort2(E[] array) {
-        sort2(array, 0, array.length - 1);
-    }
 
-    private static <E extends Comparable<E>> void sort2(E[] array, int left, int right) {
-
-        if (right <= left) {
-            return;
-        }
-        int mid = left + (right - left) / 2;
-        sort2(array, left, mid);
-        sort2(array, mid + 1, right);
-        if (array[mid].compareTo(array[mid + 1]) > 0) {
-            merge(array, left, mid, right);
-        }
-
-    }
 
 
     public static void main(String[] args) {
