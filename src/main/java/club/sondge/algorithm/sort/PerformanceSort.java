@@ -6,8 +6,8 @@ public class PerformanceSort<E> {
         long start = System.nanoTime();
         if ("MergeSort".equals(sortName)) {
             MergeSort.sort(array);
-        } else if ("MergeSort2".equals(sortName)) {
-            MergeSort.sort2(array);
+//        } else if ("MergeSort2".equals(sortName)) {
+////            MergeSort.sort2(array);
         } else if ("InsertSort".equals(sortName)) {
             InsertionSort.sort2(array);
         } else if ("SelectionSort".equals(sortName)) {
