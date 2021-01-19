@@ -36,7 +36,7 @@ public class MergeSort<E> {
             } else if (r > right) {
                 array[i] = temp[l];
                 l++;
-            } else if (temp[l].compareTo(temp[r ]) <= 0) {
+            } else if (temp[l].compareTo(temp[r]) <= 0) {
                 array[i] = temp[l];
                 l++;
             } else {
@@ -46,13 +46,24 @@ public class MergeSort<E> {
         }
     }
 
+    public static <E extends Comparable<E>> void sortBU(E[] array) {
+        E[] temp = Arrays.copyOf(array, array.length);
+        for (int size = 1; size < array.length; size += size) {
+            for (int i = 0; i + size < array.length; i += size + size) {
+                if (array[i + size - 1].compareTo(array[i + size]) > 0) {
+                    merge(array, i, i + size - 1, Math.min(i + size + size - 1, array.length - 1), temp);
+                }
+            }
+        }
+    }
+
 
     public static void main(String[] args) {
         Integer[] array = ArrayGenerator.randomGenerator(100000, 1000000);
         PerformanceSort.test("MergeSort", array);
 
-//        Integer[] array1 = ArrayGenerator.randomGenerator(100000, 1000000);
-//        PerformanceSort.test("MergeSort2", array1);
+        Integer[] array1 = ArrayGenerator.randomGenerator(100000, 1000000);
+        PerformanceSort.test("MergeSortBU", array1);
 
 //        Integer[] array2 = ArrayGenerator.randomGenerator(100000, 1000000);
 //        PerformanceSort.test("InsertSort", array2);

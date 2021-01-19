@@ -6,12 +6,14 @@ public class PerformanceSort<E> {
         long start = System.nanoTime();
         if ("MergeSort".equals(sortName)) {
             MergeSort.sort(array);
-//        } else if ("MergeSort2".equals(sortName)) {
-////            MergeSort.sort2(array);
+        } else if ("MergeSortBU".equals(sortName)) {
+            MergeSort.sortBU(array);
         } else if ("InsertSort".equals(sortName)) {
             InsertionSort.sort2(array);
         } else if ("SelectionSort".equals(sortName)) {
             SelectionSort.sort(array);
+        }else if ("QuickSort".equals(sortName)) {
+            QuickSort.sort(array);
         }
         long end = System.nanoTime();
         double time = (end - start) / 100000000.0;
