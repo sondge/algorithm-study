@@ -14,7 +14,12 @@ public class PerformanceSort<E> {
             SelectionSort.sort(array);
         } else if ("QuickSort".equals(sortName)) {
             QuickSort.sort(array);
+        } else if ("QuickSort2".equals(sortName)) {
+            QuickSort.sort2Way(array);
+        } else if ("QuickSort3".equals(sortName)) {
+            QuickSort.sort3Way(array);
         }
+
         long end = System.nanoTime();
         double time = (end - start) / 1000000000.0;
         System.out.println(sortName + " sort time is : " + time + "s");
