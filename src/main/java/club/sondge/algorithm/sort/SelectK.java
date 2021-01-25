@@ -21,6 +21,23 @@ public class SelectK {
 
     }
 
+    private int findKthLargest2(int[] nums, int k, Random random) {
+
+        int left = 0, right = nums.length - 1;
+        while (left <= right) {
+            int p = partition(nums, left, right, random);
+            if (p == nums.length - k) {
+                return nums[p];
+            } else if (p > nums.length - k) {
+                right = p - 1;
+            } else {
+                left = p + 1;
+            }
+        }
+        throw new RuntimeException("No Solution");
+
+    }
+
     private int partition(int[] nums, int left, int right, Random random) {
         int p = random.nextInt(right - left + 1) + left;
         swap(nums, p, left);
