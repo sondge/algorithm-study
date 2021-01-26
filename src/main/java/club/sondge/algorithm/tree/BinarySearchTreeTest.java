@@ -12,8 +12,15 @@ public class BinarySearchTreeTest {
         System.out.println(tree.contain(8));
         System.out.println(tree.contain(10));
         System.out.println(tree.size());
-        System.out.println(tree.preOrder());
-        System.out.println(tree.inOrder());
-        System.out.println(tree.postOrder());
+//        System.out.println(tree.preOrder());
+        System.out.println("未删除" + tree.inOrder());
+//        System.out.println(tree.postOrder());
+        System.out.println(tree.removeMin());
+        System.out.println("删除最小的" + tree.inOrder());
+        System.out.println(tree.removeMax());
+        System.out.println("删除最大的" + tree.inOrder());
+        tree.remove(5);
+        System.out.println( "删除" + tree.inOrder());
+
     }
 }
