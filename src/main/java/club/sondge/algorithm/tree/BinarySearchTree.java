@@ -176,4 +176,40 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return minimum(node.right);
     }
 
+    public void remove(E e) {
+        root = remove(root, e);
+    }
+
+    private TreeNode remove(TreeNode node, E e) {
+        if (node == null) {
+            return node;
+        }
+        if (node.e.compareTo(e) > 0) {
+            node.left = remove(node.left, e);
+            return node;
+        }
+        if (node.e.compareTo(e) < 0) {
+            node.right = remove(node.right, e);
+            return node;
+        }
+        if (node.left == null) {
+            TreeNode right = node.right;
+            node.right = null;
+            size--;
+            return right;
+        }
+        if (node.right == null) {
+            TreeNode left = node.left;
+            node.left = null;
+            size--;
+            return left;
+        }
+        TreeNode cur = minimum(node.right);
+        cur = removeMin(node.right);
+        cur.left = node.left;
+        node.left = null;
+        node.right = node;
+        return cur;
+    }
+
 }
