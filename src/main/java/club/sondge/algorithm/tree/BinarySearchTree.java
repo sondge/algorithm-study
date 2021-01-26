@@ -116,9 +116,9 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
     public E removeMin() {
         // 1. 找到对应的 min
-        E ret = minimum(root);
+        TreeNode ret = minimum(root);
         root = removeMin(root);
-        return ret;
+        return ret.e;
     }
 
     private TreeNode removeMin(TreeNode node) {
@@ -135,21 +135,21 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return node;
     }
 
-    private E minimum(TreeNode node) {
-        if (node == null) {
-            return null;
+    private TreeNode minimum(TreeNode node) {
+        if (size == 0) {
+            throw new IllegalArgumentException("Tree is Empty");
         }
         if (node.left == null) {
-            return node.e;
+            return node;
         }
         return minimum(node.left);
     }
 
     public E removeMax() {
         // 1. 找到对应的 min
-        E ret = maximum(root);
+        TreeNode ret = maximum(root);
         root = removeMax(root);
-        return ret;
+        return ret.e;
     }
 
     private TreeNode removeMax(TreeNode node) {
@@ -166,12 +166,12 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return node;
     }
 
-    private E maximum(TreeNode node) {
-        if (node == null) {
-            return null;
+    private TreeNode maximum(TreeNode node) {
+        if (size == 0) {
+            throw new IllegalArgumentException("Tree is Empty");
         }
         if (node.right == null) {
-            return node.e;
+            return node;
         }
         return minimum(node.right);
     }
