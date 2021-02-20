@@ -173,7 +173,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
         if (node.right == null) {
             return node;
         }
-        return minimum(node.right);
+        return maximum(node.right);
     }
 
     public void remove(E e) {

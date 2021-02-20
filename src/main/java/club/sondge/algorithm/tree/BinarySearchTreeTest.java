@@ -6,8 +6,10 @@ public class BinarySearchTreeTest {
     public static void main(String[] args) {
         BinarySearchTree<Integer> tree = new BinarySearchTree<>();
         Random random = new Random();
+        int x = 0;
         for (int i = 0; i < 10; i++) {
-            tree.add(random.nextInt(100));
+            x = random.nextInt(100);
+            tree.add(x);
         }
         System.out.println(tree.contain(8));
         System.out.println(tree.contain(10));
@@ -19,8 +21,8 @@ public class BinarySearchTreeTest {
         System.out.println("删除最小的" + tree.inOrder());
         System.out.println(tree.removeMax());
         System.out.println("删除最大的" + tree.inOrder());
-        tree.remove(5);
-        System.out.println( "删除" + tree.inOrder());
+        tree.remove(x);
+        System.out.println("删除x = " + x + ":" + tree.inOrder());
 
     }
 }
